@@ -14,8 +14,6 @@ Original file is located at
     https://colab.research.google.com/drive/1Rs-sQcmWrZ5ukWAQpfxal4mnMS3OC21p
 """
 
-#Orthogonal matrix
-omat = np.array([[0,1],[-1,0]]) 
 
 #Functions related to line
 import numpy as np
@@ -103,9 +101,9 @@ def icentre(A,B,C,k1,k2):
 
 dvec = np.array([-1,1]) 
 #Orthogonal matrix
-omat = np.array([[0,1],[-1,0]]) 
+omat = np.array([[0,1],[-1,0]])
 
-#Normal of a parabola
+#Parabola for quadforms 2.45
 #Code by B.ANUSHA
 #Jun 12, 2021
 
@@ -157,8 +155,7 @@ x_par = y + c
 
 #Tangent
 p = np.array([1,0])
-n = np.array(([-2,-1]))
-m = np.array(([1,-2]))
+m = np.array(([-2,-1]))
 
 #Generating points on the tangent T
 T = line_dir_pt(m,p,-5,18)
