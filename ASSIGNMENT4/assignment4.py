@@ -127,11 +127,10 @@ ax = fig.add_subplot(111, aspect='equal')
 len = 50
 
 #Standard parabola
-
-y1 = np.linspace(-5,5,len)
-y2 = np.power(y1,2)
-
-y = np.vstack((y1,y2))
+x = np.linspace(-5, 5, 1000)
+x1 = np.linspace(-2, 2, 1000) 
+y = x*x/4.0
+y1 = 4 - 2*x1
 
 #Given parabola parameters
 V = np.array(([1,0],[0,0]))
@@ -152,27 +151,18 @@ print(c)
 #Generating the parabola
 x_par = y + c
 
-
-#Tangent
-p = np.array([1,0])
+#Normal
+p = np.array([1,2])
 m = np.array(([-2,-1]))
 
-#Generating points on the tangent T
-T = line_dir_pt(m,p,-5,18)
-
 #Plotting parabola
-x=(y*y + 2)/3 
-plt.plot(x_par[0,:],x_par[1,:],label='$x^2=4y$')
-
-
-#plotting tangent T
-plt.plot(T[0,:],T[1,:],label='Normal')
-
-#Plotting all points
+plt.plot(x, y, '-', label='$x^2 = 4y$')
 plt.plot(p[0], p[1], 'o')
-plt.text(p[0] * (1 + 0.5), p[1] * (1 - 0.1) , 'p')
-
-ax.plot()
-plt.xlabel('$x$');plt.ylabel('$y$')
-plt.legend(loc='best');plt.grid()
-#plt.show()
+plt.text(p[0] + 0.1, p[1] + 0.1, 'P')
+plt.plot(x1, y1, '-', label='$2x + y = 4$')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.legend(loc='best')
+plt.grid() # minor
+plt.axis('equal')
+plt.show()
